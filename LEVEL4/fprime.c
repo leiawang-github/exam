@@ -11,7 +11,7 @@ int main(int ac, char **av)
 
         if (number == 1)
             printf("1");
-        while(number >= 2)
+        while(number >= 2) //这个循环条件很关键，小于2没有意义
         {
             i++;
             if(number % i == 0)

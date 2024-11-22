@@ -37,12 +37,12 @@ char	*ft_itoa(int nbr)
 	cnum = (char *)malloc((len + 1) * sizeof(char));
 	if (!cnum)
 		return (NULL);
-	cnum[0] = '-';
+	cnum[0] = '-'; //正数时不会显示
 	cnum[len] = '\0';
 	while ((len - 1) >= i)
 	{
 		cnum[len - 1] = ft_abs(nbr % 10) + '0';
-		nbr /= 10;
+		nbr =nbr / 10;
 		len--;
 	}
 	return (cnum);
