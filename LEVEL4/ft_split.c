@@ -22,7 +22,7 @@ char **ft_split(char *str)
 
     // 为单词数组分配内存
     char **out = (char **)malloc(sizeof(char *) * (wc + 1));
-    i = 0;
+    i = 0; //！！！
 
     // 复制每个单词
     while (str[i])

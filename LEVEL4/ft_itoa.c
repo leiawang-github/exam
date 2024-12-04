@@ -10,7 +10,7 @@ int nlen(int nbr)
 	i = 0;
 	while (nbr != 0)
 	{
-		nbr /= 10;
+		nbr = nbr / 10;
 		i++;
 	}
 	return (i);
@@ -25,27 +25,26 @@ int ft_abs(int nbr)
 
 char	*ft_itoa(int nbr)
 {
-	char *cnum;
+	char *result; //最终结果是一个char *
 	int len;
-	int i;
+	int i = 0;
 
 	len = nlen(nbr);
-	i = 0;
 	if (nbr < 0)
 		i++;
 	len = len + i;
-	cnum = (char *)malloc((len + 1) * sizeof(char));
-	if (!cnum)
+	result = (char *)malloc((len + 1) * sizeof(char));
+	if (!result)
 		return (NULL);
-	cnum[0] = '-'; //正数时不会显示
-	cnum[len] = '\0';
+	result[0] = '-'; //正数时不会显示
+	result[len] = '\0';
 	while ((len - 1) >= i)
 	{
-		cnum[len - 1] = ft_abs(nbr % 10) + '0';
+		result[len - 1] = ft_abs(nbr % 10) + '0';
 		nbr =nbr / 10;
 		len--;
 	}
-	return (cnum);
+	return (result);
 }
 
 int main()
