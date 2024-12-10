@@ -26,3 +26,25 @@
 // -42$
 // $> ./do_op | cat -e
 // $
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+int main(int ac , char **argv)
+{
+    if (ac == 4)
+    {
+        if (argv[2][0] == '+')
+			printf("%d", (atoi(argv[1]) + atoi(argv[3])));
+		if (argv[2][0] == '-')
+			printf("%d", (atoi(argv[1]) - atoi(argv[3])));
+		if (argv[2][0] == '*')
+			printf("%d", (atoi(argv[1]) * atoi(argv[3])));
+		if (argv[2][0] == '/')
+			printf("%d", (atoi(argv[1]) / atoi(argv[3])));
+		if (argv[2][0] == '%')
+			printf("%d", (atoi(argv[1]) % atoi(argv[3])));
+	}
+	printf("\n");
+	return (0);
+}
