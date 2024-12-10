@@ -25,15 +25,15 @@ unsigned char	reverse_bits(unsigned char num)
 {
 	int		i = 7;
     unsigned char bit;
-	unsigned char	res = 0;
+	unsigned char	result = 0;
 
     while( i >= 0)
     {
         bit = ((num >> i) & 1) << (7 - i);
-        res = res | bit;
+        result = result | bit;
         i--;
     }
-    return (res);
+    return (result);
 }
 
 int main()

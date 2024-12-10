@@ -27,7 +27,7 @@ int	ft_atoi(const char *str)
 
 int main(void)
 {
-	char str[] = "    -1235aan 89 ";
+	char str[] = "   +-1235aan 89 ";
 	printf("The result will be :%d\n", ft_atoi(str));
 }
 

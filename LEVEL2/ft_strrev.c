@@ -3,12 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leiwang <leiwang@student.42.fr>            +#+  +:+       +#+        */
+/*   By: leia <leia@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:45:18 by leiwang           #+#    #+#             */
-/*   Updated: 2024/05/22 16:57:01 by leiwang          ###   ########.fr       */
+/*   Updated: 2024/12/10 09:22:07 by leia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Assignment name  : ft_strrev
+// Expected files   : ft_strrev.c
+// Allowed functions:
+// --------------------------------------------------------------------------------
+
+// Write a function that reverses (in-place) a string.
+
+// It must return its parameter.
+
+// Your function must be declared as follows:
+
+// char    *ft_strrev(char *str);
 
 #include <stdio.h>
 
