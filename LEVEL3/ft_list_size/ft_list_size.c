@@ -22,7 +22,6 @@ typedef struct    s_list
     int           data;
 }                 t_list;
 
-//创建新节点
 t_list *new_node(int data)
 {
     t_list *new_node = (t_list *)malloc(sizeof(t_list));

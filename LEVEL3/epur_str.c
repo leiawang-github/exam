@@ -31,7 +31,7 @@
 int main(int ac, char **av)
 {
     int i = 0;
-    int is_first_word = 1;
+    int is_last_word = 1;
 
     if (ac == 2)
     {
@@ -39,7 +39,7 @@ int main(int ac, char **av)
             i++;
         while (av[1][i] != '\0')
         {
-            if(!is_first_word)
+            if(!is_last_word)
                 write(1, " ", 1);
 
             while (av[1][i] != '\t' && av[1][i] != ' ' && av[1][i])
@@ -49,8 +49,7 @@ int main(int ac, char **av)
             }
             while (av[1][i] == '\t' || av[1][i] == ' ')
                 i++;
-
-            is_first_word = 0;
+            is_last_word = 0;
         }
     }
     write(1, "\n", 1);

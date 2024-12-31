@@ -23,60 +23,6 @@
 
 #include <unistd.h>
 
-// int check_double2(char *str, char c) //检查某个字符串中是否有特定字符
-// {
-// 	int i = 0;
-// 	while (str[i] != '\0')
-// 	{
-// 		if (str[i] == c)
-// 			return (0);
-// 		i++;
-// 	}
-// 	return (1);
-// }
-
-// int check_double1(char *str, char c, int pos)
-// {
-// 	int i = 0;
-// 	while (i < pos)
-// 	{
-// 		if (str[i] == c)
-// 			return (0);
-// 		i++;
-// 	}
-// 	return (1);	
-// }
-
-
-// void ft_union(char *str, char *str1)
-// {
-// 	int i = 0;
-// 	while (str[i] != '\0')
-// 	{
-// 		if (check_double1(str, str[i], i) == 1)
-// 			write(1, &str[i], 1);
-// 		i++;
-// 	}// 以上： 写出str里面所有不重复的char
-// 	i = 0;
-	
-// 	while (str1[i] != '\0')
-// 	{
-// 		if (check_double2(str, str1[i]) == 1)
-// 		{
-// 			if (check_double1(str1, str1[i], i) == 1)
-// 				write(1, &str1[i], 1);
-// 		}
-// 		i++;
-// 	}
-// }
-
-// int main(int ac, char **av)
-// {
-// 	if (ac == 3)
-// 		ft_union(av[1], av[2]);
-// 	write(1, "\n", 1);
-// }
-
 int main(int ac, char **av)
 {
     if (ac == 3)
@@ -87,7 +33,7 @@ int main(int ac, char **av)
 
         while (av[1][i])
         {
-            if (!seen[(unsigned char)av[1][i]])
+            if ((seen[(unsigned char)av[1][i]])== 0)
             {
                 write(1, &av[1][i], 1);
                 seen[(unsigned char)av[1][i]] = 1;
@@ -96,7 +42,7 @@ int main(int ac, char **av)
         }
         while (av[2][j])
         {
-            if (!seen[(unsigned char)av[2][j]])
+            if ((seen[(unsigned char)av[2][j]]) == 0)
             {
                 write(1, &av[2][j], 1);
                 seen[(unsigned char)av[2][j]] = 1;

@@ -24,19 +24,19 @@
 
 unsigned char	swap_bits(unsigned char octet) //返回值是一个0-255之间的数字
 {
-    int i = 7;
-    char bit;
-    unsigned char	res = 0;
+    // int i = 7;
+    // char bit;
+    // unsigned char	res = 0;
 
-    while (i>= 0)
-    {
-        if (i >= 4)
-            bit = (octet >> i) & 1 + '0';
-        else
-            bit = (i << octet) & 1 + '0';
-        write(1, &bit, 1);
-        i--;
-    }
+    // while (i>= 0)
+    // {
+    //     if (i >= 4)
+    //         bit = (octet >> i) & 1 + '0';
+    //     else
+    //         bit = (i << octet) & 1 + '0';
+    //     write(1, &bit, 1);
+    //     i--;
+    // }
     return ((octet >> 4) | (octet << 4));
 }
 

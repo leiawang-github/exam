@@ -37,7 +37,7 @@ int main()
 {
    char * str = "heyou";
 
-   char *reject = "hi";
+   char *reject = "asde";
 
    printf("%lu", ft_strcspn(str, reject));
 }

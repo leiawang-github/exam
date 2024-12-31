@@ -28,32 +28,30 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int main(int ac, char **av)
+int main(int argc, char const *argv[])
 {
-    int i = 0;
-    int is_first_word = 1;
+    int i;
+    int flag = 0;
 
-    if (ac == 2)
+    if (argc == 2)
     {
-        while (av[1][i] == '\t' || av[1][i] == ' ')
+        i = 0;
+        while (argv[1][i] == ' ' || argv[1][i] == '\t')
             i++;
-        while (av[1][i] != '\0')
+        while (argv[1][i])
         {
-            if(!is_first_word)
+            if (argv[1][i] == ' ' || argv[1][i] == '\t')
+                flag = 1;
+            else
             {
-                write(1, "   ", 3);
+                if (flag)
+                    write(1, "   ", 3);
+                flag = 0;
+                write(1, &argv[1][i], 1);
             }
-            while (av[1][i] != '\t' && av[1][i] != ' ' && av[1][i])
-            {
-                write(1, &av[1][i], 1);
-                i++;
-            }
-            while (av[1][i] == '\t' || av[1][i] == ' ')
-                i++;
-
-            is_first_word = 0;
+            i++;
         }
     }
     write(1, "\n", 1);
-    return 0;
+    return (0);
 }

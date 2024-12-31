@@ -16,19 +16,18 @@
 
 void print_bits(unsigned char octet)
 {
-   int i = 7;
-   char bit;
+   unsigned char bit;
 
-   while(i >= 0)
+   int i = 7;
+   while (i >= 0)
    {
       bit = (octet >> i & 1) + '0';
       write(1, &bit, 1);
       i--;
    }
 }
-
 int main()
 {
-   int  octet = 255;
+   int octet = 2;
    print_bits(octet);
 }
