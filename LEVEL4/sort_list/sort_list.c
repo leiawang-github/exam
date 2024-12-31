@@ -32,26 +32,95 @@
 // 	return (a <= b);
 // }
 #include <stdlib.h>
+#include <stdio.h>
 #include "list.h"
 
 t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 {
-    int swap;
+    int temp;
     t_list *start;
 
     start = lst;
-    while (lst != NULL && lst->next != NULL)
+    while (lst!= NULL && lst->next!= NULL)
     {
-        if ((*cmp)(lst->data,lst->next) == 0)
+        if ((*cmp) (lst->data,lst->next->data) == 0)
         {
-            swap = lst->data;
+            temp = lst->data;
             lst->data = lst->next->data;
-            lst->next->data = swap;
+            lst->next->data = temp;
             lst = start;
         }
-        else   
+        else 
             lst = lst->next;
     }
     return (start);
+
 }
 
+int cmp(int a, int b)
+{
+    return (a < b);
+}
+
+t_list *create_node(int data)
+{
+    t_list *new_node = (t_list *)malloc (sizeof(t_list));
+    if (!new_node)
+        return NULL;
+
+    new_node -> data = data;
+    new_node -> next = NULL;
+    return new_node;    
+}
+
+void print_list(t_list *lst)
+{
+    while (lst)
+    {
+        printf("%d", lst->data);
+        lst = lst->next;
+    }
+    printf("\n");
+}
+
+int main()
+{
+    t_list *head = create_node(3);
+    head->next = create_node(1);
+    head->next->next = create_node(2);
+
+    printf("original lst: \n");
+    print_list(head);
+
+    head = sort_list(head, cmp);
+
+    printf("Sorted lst:\n");
+    print_list(head);
+
+    free(head->next->next);
+    free(head->next);
+    free(head);
+
+}
+
+
+
+// t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
+// {
+//     int swap;
+//     t_list *start = lst;
+
+//     while (lst != NULL && lst->next != NULL)
+//     {
+//         if (cmp(lst-> data, lst->next->data) == 0)
+//         {
+//             swap = lst->data;
+//             lst->data = lst->next->data;
+//             lst->next->data = swap;
+//             lst = start;
+//         }
+//         else
+//             lst = lst->next;  
+//     }
+//     return (start);
+// }

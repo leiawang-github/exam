@@ -35,7 +35,6 @@
 
 #include <unistd.h>
 
-
 void write_word(char *start, char *end)
 {
     while (start < end)
@@ -62,7 +61,8 @@ int main(int argc, char **argv)
         first_word_end = str;
         while (*str == ' ' || *str == '\t')
             str++;
-        if (*str) {
+        if (*str)
+        {
             while (*str)
             {
                 if (*str == ' ' || *str == '\t')
@@ -76,7 +76,8 @@ int main(int argc, char **argv)
                 {
                     write(1, str, 1);
                     str++;
-                }
+                } 
+               
             }
             write(1, " ", 1);
         }
@@ -85,3 +86,8 @@ int main(int argc, char **argv)
     write(1, "\n", 1);
     return 0;
 }
+    
+
+
+
+
