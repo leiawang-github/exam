@@ -9,10 +9,13 @@ int	ft_atoi(char *str)
 	int sign = 1;
 
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
-        	str++;
+        str++;
 	if (*str == '-')
+	{
 		sign = -1;
-	while (*str == '-' || *str == '+')
+		str++;
+	}
+	else if (*str == '+')
 		str++;
 	while (*str >= '0' && *str <= '9')
 	{
@@ -21,10 +24,12 @@ int	ft_atoi(char *str)
 	}
 	return (sign * result);
 }
+
+
 int main(void)
 {
-	char str[] = "   --1235aan 89 ";
+	char str[] = "   -1235aan 89 ";
 	printf("The result will be :%d\n", ft_atoi(str));
-	printf("The result will be :%d\n", atoi(str));
+	printf("Original result will be :%d\n", atoi(str));
 }
 

@@ -42,7 +42,7 @@ int main(int ac, char **av)
                 i++;
             j++;
         }
-        if (av[1][i] == '\0')
+        if (av[1][i] == '\0') //i 增加到了最大值
         {
             i = 0;
             while(av[1][i])

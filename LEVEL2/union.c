@@ -23,7 +23,7 @@
 
 #include <unistd.h>
 
-int main(int ac, char **av)
+int main(int ac, char **av) //求并集
 {
     if (ac == 3)
     {
@@ -33,7 +33,7 @@ int main(int ac, char **av)
 
         while (av[1][i])
         {
-            if ((seen[(unsigned char)av[1][i]])== 0)
+            if ((seen[(unsigned char)av[1][i]])== 0)//如果某个字符没有出现过，就把它写入
             {
                 write(1, &av[1][i], 1);
                 seen[(unsigned char)av[1][i]] = 1;

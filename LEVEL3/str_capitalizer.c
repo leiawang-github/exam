@@ -30,50 +30,6 @@
 // 2. in str, mark str[0] to uppercase using above function and all space+ 1 char uppercase using same funtion
 // 3. all letters dont follow above sules goes to lowercase using 1 function
 
-// #include <unistd.h>
-// #include <stdio.h>
-
-// int ft_tolower(int c)
-// {
-//     if ('A' <= c && c <= 'Z')
-//         c = c + 32;
-//     return (c);
-// }
-
-// int ft_toupper(int c)
-// {
-//     if ('a' <= c && c <= 'z')
-//         c = c - 32;
-//     return (c);
-// }
-
-// int main(int ac, char** av)
-// {
-//     int i = 0;
-
-//     if (ac ==2)
-//     {
-//         while(av[1][i])
-//         {
-//             av[1][i] = ft_tolower(av[1][i]); // all into lowercase now
-//             i++;
-//         }
-//         i = 0;
-//         while (av[1][i])
-//         {
-//             if ('a' <= av[1][0] && av[1][0] <= 'z')
-//                 av[1][0] = ft_toupper(av[1][0]);
-//             else if((av[1][i] == '\t' || av[1][i] == '\n' || av[1][i] == ' ') && ('a' <= av[1][ i + 1] && av[1][i + 1] <= 'z'))
-//                 av[1][i + 1] = ft_toupper( av[1][i + 1]);
-//             write(1, &av[1][i], 1);
-//             i++;
-//         }
-//     }
-//     write(1,"\n", 1);
-//     return (0);
-// }
-
-//BETTER WAY
 #include <unistd.h>
 
 int main(int ac, char **av)
