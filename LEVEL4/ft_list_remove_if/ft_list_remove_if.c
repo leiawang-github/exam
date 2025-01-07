@@ -20,13 +20,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct      s_list
+typedef struct      s_list //定义了一个结构体
 {
     struct s_list   *next;
     int              data;
 }                   t_list;
 
-t_list *create_node(int data)
+t_list *create_node(int data) //在自定义的结构体里面创建了一个新节点
 {
     t_list *new_node = (t_list *)malloc(sizeof(t_list));
     if (!new_node)
@@ -36,9 +36,9 @@ t_list *create_node(int data)
     return new_node;
 }
 
-int cmp(int data1, int data2)
+int cmp(int data1, void *data2)
 {
-    if (data1 == data2)
+    if (data1 == *(int *)data2)
         return 0;  // 如果两个数据相等，返回0
     else
         return 1;  // 如果两个数据不相等，返回1
@@ -67,17 +67,19 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 		ft_list_remove_if(begin_list, data_ref, cmp);
 	}
 	else
-		//current = *begin_list;
-		ft_list_remove_if(&current->next, data_ref, cmp);
+    {
+        current = *begin_list;
+        ft_list_remove_if(&current->next, data_ref, cmp);
+    }	
 }
+
 int main()
 {
     // 创建链表节点并赋值
-    int data1 = 1, data2 = 1, data3 = 3, data4 = 2;
-    t_list *node1 = create_node(data1);
-    t_list *node2 = create_node(data2);
-    t_list *node3 = create_node(data3);
-    t_list *node4 = create_node(data4);
+    t_list *node1 = create_node(1);
+    t_list *node2 = create_node(1);
+    t_list *node3 = create_node(3);
+    t_list *node4 = create_node(2);
 
     // 构造链表
     node1->next = node2;
@@ -89,7 +91,8 @@ int main()
     print_list(node1);
 
     // 删除链表中值为 2 的节点
-    ft_list_remove_if(&node1, &data2, cmp);
+    int data_to_remove = 2;
+    ft_list_remove_if(&node1, &data_to_remove, cmp);
 
     // 打印删除节点后的链表
     printf("List after removal:\n");
@@ -97,7 +100,5 @@ int main()
 
     // 释放内存
     free(node1);
-    free(node3);
-    
     return 0;
 }

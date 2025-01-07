@@ -38,9 +38,8 @@
 t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 {
     int temp;
-    t_list *start;
+    t_list *current = lst;
 
-    start = lst;
     while (lst!= NULL && lst->next!= NULL)
     {
         if ((*cmp) (lst->data,lst->next->data) == 0)
@@ -48,13 +47,11 @@ t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
             temp = lst->data;
             lst->data = lst->next->data;
             lst->next->data = temp;
-            lst = start;
         }
         else 
             lst = lst->next;
     }
-    return (start);
-
+    return (current);
 }
 
 int cmp(int a, int b)
@@ -77,17 +74,22 @@ void print_list(t_list *lst)
 {
     while (lst)
     {
-        printf("%d", lst->data);
+        printf("%d -> ", lst->data);
         lst = lst->next;
     }
-    printf("\n");
+    printf("NULL\n");
 }
 
 int main()
 {
+    //create nodes;
     t_list *head = create_node(3);
-    head->next = create_node(1);
-    head->next->next = create_node(2);
+    t_list *node1 = create_node(1);
+    t_list *node2 = create_node(2);
+
+    //create strut;
+    head->next = node1;
+    node1->next = node2;
 
     printf("original lst: \n");
     print_list(head);
@@ -97,30 +99,7 @@ int main()
     printf("Sorted lst:\n");
     print_list(head);
 
-    free(head->next->next);
-    free(head->next);
     free(head);
-
+    free(node1);
+    free(node2);
 }
-
-
-
-// t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
-// {
-//     int swap;
-//     t_list *start = lst;
-
-//     while (lst != NULL && lst->next != NULL)
-//     {
-//         if (cmp(lst-> data, lst->next->data) == 0)
-//         {
-//             swap = lst->data;
-//             lst->data = lst->next->data;
-//             lst->next->data = swap;
-//             lst = start;
-//         }
-//         else
-//             lst = lst->next;  
-//     }
-//     return (start);
-// }
